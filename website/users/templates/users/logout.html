@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+<html>
+    <head></head>
+    <body>
+        {% block content %}
+        <div class="container mt-5">
+            <h2>You have been logged out of your account!</h2>
+            <p><a href="{% url 'register' %}">Log In</a> again.</p>
+        </div>
+        {% endblock %}
+    </body>
+</html>

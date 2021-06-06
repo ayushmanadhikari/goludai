@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block content %}
+        <div class='container mt-5'>
+            <form method="POST">
+                <legend>Join Today!</legend>
+                {% csrf_token %}
+                {{forms|crispy}}
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </form>
+        {% endblock %}
+        </div>
+    </body>
+</html>

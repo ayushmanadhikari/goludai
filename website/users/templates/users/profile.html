@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+<html>
+    <head></head>
+    <body>
+        {% block content %}
+        <div class="container mt-5">
+            {% if user.is_authenticated %}
+                <h1>{{user.username}}</h1>
+            {% endif %}
+        </div>
+        {% endblock %}
+    </body>
+</html>

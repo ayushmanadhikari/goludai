@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+<html>
+    <head></head>
+    <body>
+        {% block content %}
+            <h1 class="container mt-5" >This is home page!</h1>
+            {% for post in posts %}
+                <div class="container">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.content}}</p>
+                </div>
+            {% endfor %}
+        {% endblock %}
+    </body>
+</html>
