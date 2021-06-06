@@ -6,6 +6,7 @@
         <div class="container mt-5">
             {% if user.is_authenticated %}
                 <h1>{{user.username}}</h1>
+                <img src="{{user.profile.image.url}}" class="img-thumbnail" width="200px" height="200px">
             {% endif %}
         </div>
         {% endblock %}
