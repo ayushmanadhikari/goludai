@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = ['users.customauth.EmailBackend']
+AUTHENTICATION_BACKENDS = ['users.customauth.EmailBackEnd']
 
 
 
