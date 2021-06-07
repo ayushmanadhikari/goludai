@@ -5,7 +5,8 @@
         {% block content %}
         <div class="container mt-5">
             {% if user.is_authenticated %}
-                <h1>{{user.username}}</h1>
+                <h2>{{user.username}}</h2>
+                <p>{{user.email}}</p>
                 <img src="{{user.profile.image.url}}" class="img-thumbnail" width="200px" height="200px">
             {% endif %}
         </div>
