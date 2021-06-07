@@ -1,9 +1,14 @@
+from django.contrib.auth import get_user_model
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from PIL import Image
 
+
+UserModel = get_user_model()
+
+
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(UserModel, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profile_pics/', default="default.jpg")
 
     def __str__(self):

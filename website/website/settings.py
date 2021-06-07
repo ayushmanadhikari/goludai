@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
-    'users.apps.UsersConfig',
+    'users',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [
@@ -104,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = ['users.customauth.EmailBackEnd']
+
 
 
 
