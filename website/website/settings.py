@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = ['users.customauth.EmailBackEnd']
-
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import LoginForm, UserRegisterForm
+from django.contrib.auth.views import LoginView
 
 
 def register(request):
@@ -22,5 +23,10 @@ def register(request):
 
 def profile(request):
     return render(request, "users/profile.html")
+
+
+class LoginView(LoginView):
+    form_class = LoginForm
+    template_name = "users/login.html"
 
 
