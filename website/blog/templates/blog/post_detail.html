@@ -6,6 +6,15 @@
             <h1 class="container mt-5" >Detail Page!</h1>
                 <div class="container">
                     <h3>{{object.title}}</h3>
+                    <small>{{object.author}}</small>
+                    {% if object.author == user %}
+                        <a href="{% url 'post-update' object.id %}">
+                            <button class="btn btn-secondary">Update Post</button>
+                        </a>
+                        <a href="{% url 'post-delete' object.id %}">
+                            <button class="btn btn-outline-danger">Delete Post</button>
+                        </a>
+                    {% endif %}
                     <p>{{object.content}}</p>
                 </div>
         {% endblock %}
