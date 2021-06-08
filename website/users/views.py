@@ -25,7 +25,7 @@ def profile(request):
     return render(request, "users/profile.html")
 
 
-class LoginView(LoginView):
+class LoginsView(LoginView):
     form_class = LoginForm
     template_name = "users/login.html"
 

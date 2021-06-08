@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
 
+
 class EmailBackEnd(ModelBackend):
     def authenticate(self, request, username=None, password=None):
         UserModel = get_user_model()
