@@ -3,14 +3,16 @@
     <head></head>
     <body>
         {% block content %}
-            <h1 class="container mt-5" >List page!</h1>
+            <h1 class="container mt-5 mb-3" >{{view.kwargs.username}} posts({{page_obj.paginator.count}}) page!</h1>
             {% for post in posts %}
                 <div class="container">
                     <h2><a href="{% url 'post-detail' post.id %}">{{post.title}}</a></h2>
-                    <a class="mr-2" href="{% url 'user-post' post.author.username %}">{{post.author}}</a>
+                    <a class="small" href="{% url 'user-post' post.author.username %}">{{post.author}}</a>
                     <p>{{post.content}}</p>
                 </div>
             {% endfor %}
+
+
             {% if is_paginated %}
             <ul class=" container pagination"> 
                 {% if page_obj.has_previous %}

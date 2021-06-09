@@ -6,7 +6,7 @@
             <h1 class="container mt-5" >Detail Page!</h1>
                 <div class="container">
                     <h3>{{object.title}}</h3>
-                    <small>{{object.author}}</small>
+                    <a class="mr-2" href="{% url 'user-post' post.author.username %}">{{object.author}}</a>
                     {% if object.author == user %}
                         <a href="{% url 'post-update' object.id %}">
                             <button class="btn btn-secondary">Update Post</button>
