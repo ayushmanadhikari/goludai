@@ -11,7 +11,7 @@ def home(request):
 
 class HomeListView(ListView):
     model = Post                        #post_list.html         --default
-    template_name = 'blog/home.html'
+    template_name = 'blog/blog.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 5

@@ -3,19 +3,26 @@
     <head></head>
     <body>
         {% block content %}
-            <h1 class="container mt-5" >Detail Page!</h1>
                 <div class="container">
-                    <h3>{{object.title}}</h3>
-                    <a class="mr-2" href="{% url 'user-post' post.author.username %}">{{object.author}}</a>
-                    {% if object.author == user %}
-                        <a href="{% url 'post-update' object.id %}">
-                            <button class="btn btn-secondary">Update Post</button>
-                        </a>
-                        <a href="{% url 'post-delete' object.id %}">
-                            <button class="btn btn-outline-danger">Delete Post</button>
-                        </a>
-                    {% endif %}
-                    <p>{{object.content}}</p>
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="row">
+                            <h3>{{object.title}}</h3>
+                            <p>
+                                {{post.date_posted}}
+                            </p>
+                            <img src="{{user.profile.image.url}}" width="50px" height="50px">
+                            <a class="mr-2" href="{% url 'user-post' post.author.username %}">{{object.author}}</a>
+                            {% if object.author == user %}
+                                <a href="{% url 'post-update' object.id %}">
+                                    <button class="btn btn-secondary">Update Post</button>
+                                </a>
+                                <a href="{% url 'post-delete' object.id %}">
+                                    <button class="btn btn-outline-danger">Delete Post</button>
+                                </a>
+                            {% endif %}
+                            <p>{{object.content}}</p>
+                        </div>
+                    </div>
                 </div>
         {% endblock %}
     </body>

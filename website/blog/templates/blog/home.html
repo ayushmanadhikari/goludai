@@ -1,39 +1,36 @@
 {% extends 'blog/base.html' %}
-<html>
-    <head></head>
-    <body>
-        {% block content %}
-            <h1 class="container mt-5" >List page!</h1>
-            {% for post in posts %}
-                <div class="container">
-                    <h2><a href="{% url 'post-detail' post.id %}">{{post.title}}</a></h2>
-                    <a class="mr-2" href="{% url 'user-post' post.author.username %}">{{post.author}}</a>
-                    <p>{{post.content}}</p>
-                </div>
-            {% endfor %}
-            {% if is_paginated %}
-            <ul class=" container pagination"> 
-                {% if page_obj.has_previous %}
-                    <button class="btn btn-outline-info"><a href="?page={{page_obj.previous_page_number}}">&laquo;</a></button>
-                {% else %}
-                    <button class="disabled btn btn-ouline-info"><span>&laquo;</span></button>
-                {% endif %}
-                
-                {% for i in paginator.page_range %}
-                    {% if i == page_obj.number %}
-                        <button class="active btn-info">{{i}}</button>
-                    {% else %}
-                        <button class="btn btn-outline-info"><a href="?page={{i}}">{{i}}</a></button>
-                    {% endif %}
-                {% endfor %}
+{% load static %}
 
-                {% if page_obj.has_next %}
-                    <button class="btn btn-outline-info"><a href="?page={{page_obj.next_page_number}}">&raquo;</a></button>
-                {% else %}
-                    <button class="disabled disabled btn btn-ouline-info"><span>&raquo;</span></button>
-                {% endif %}
-            </ul>
-            {% endif %}
-        {% endblock %}
-    </body>
+
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    {% block content %}
+
+          <!-- +++++ Welcome Section +++++ -->
+      <div id="ww">
+        <div class="container">
+          <div class="row"> 
+            <div class="col-lg-8 col-lg-offset-2 centered">
+              <img src=" {% static 'blog/img/user.png' %}" alt="Stanley">
+              <h1>Hi, I am Ayushman!</h1>
+              <p>Hello everybody. I'm Ayushman, a begineer at coding. This is my first project. This is a blog and you can explore it find some interesting posts.
+                Please feel free to give me feedback regarding anything about this website.</p> 
+              <p>Thank you for visiting!</p>
+
+            </div>
+            <!-- /col-lg-8 -->
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container -->
+      </div>
+      <!-- /ww -->
+
+    {% endblock %}
+
+  </body>
 </html>

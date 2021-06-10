@@ -1,0 +1,61 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+<html>
+  <head></head>
+
+
+  <body>
+    {% block content %}
+
+<!-- +++++ Loop for displaying posts in Post db +++++ -->
+      <div id="grey">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              {% for post in posts %}
+                    <h2><a href="{% url 'post-detail' post.id %}">{{post.title}}</a></h2>
+                    <p>
+                      {{post.date_posted}}
+                    </p>
+                    <img src="{{user.profile.image}}" width="50px" height="50px">
+                    <a class="mr-2" href="{% url 'user-post' post.author.username %}">{{post.author}}</a>
+                    <p>{{post.content}}</p>
+              {% endfor %}
+            </div>  
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container -->
+      </div>
+      <!-- /grey -->
+
+
+<!-- pagination Section -->
+      {% if is_paginated %}
+                <div class="container"> 
+                    {% if page_obj.has_previous %}
+                        <button class="btn btn-outline-info"><a href="?page={{page_obj.previous_page_number}}">&laquo;</a></button>
+                    {% else %}
+                        <button class="disabled btn btn-ouline-info"><span>&laquo;</span></button>
+                    {% endif %}
+                    
+                    {% for i in paginator.page_range %}
+                        {% if i == page_obj.number %}
+                            <button class="active btn-info">{{i}}</button>
+                        {% else %}
+                            <button class="btn btn-outline-info"><a href="?page={{i}}">{{i}}</a></button>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <button class="btn btn-outline-info"><a href="?page={{page_obj.next_page_number}}">&raquo;</a></button>
+                    {% else %}
+                        <button class="disabled disabled btn btn-ouline-info"><span>&raquo;</span></button>
+                    {% endif %}
+                </div>
+                {% endif %}
+                
+    {% endblock %}
+  </body>
+</html>
